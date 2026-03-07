@@ -1,13 +1,9 @@
-# Ubuntu-VM-for-termux
-These are cmds for getting a Ubuntu VM in termux via QEMU
-
-pkg upgrade -y
-pkg install pd
-pd install Ubuntu
-pd login Ubuntu
-apt install qemu-utils 
+#!bin/bash
+pkg upgrade -y && pkg install pd
+pd install Ubuntu 
+pd login ubuntu
 apt install aria2
-aria2c -x 16 -s 16 "https://releases.ubuntu.com/24.04.4/ubuntu-24.04.4-desktop-amd64.iso"
+aria2c -x 16 -s 16 "https://releases.ubuntu.com/24.04.4/ubuntu-24.04.4-desktop-amd64.iso" -o ubuntu.iso
 qemu-img create -f qcow2 ubuntu.qcow2 70G
 qemu-system-x86_64 \
   -m 4096 \
@@ -22,4 +18,4 @@ qemu-system-x86_64 \
                     -usb \
                       -device usb-tablet \
                         -rtc base=localtime \
-                          -display vnc=:1            
+                          -display vnc=:1
