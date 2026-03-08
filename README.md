@@ -22,4 +22,6 @@ qemu-system-x86_64 \
                     -usb \
                       -device usb-tablet \
                         -rtc base=localtime \
-                          -display vnc=:1            
+                          -display vnc=:1
+
+                          after installing it just run the params and change boot d to boot c!
